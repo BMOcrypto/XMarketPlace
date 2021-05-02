@@ -30,10 +30,21 @@ namespace XMarketPlace.WebUI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapAreaControllerRoute(
+                     name: "areas",
+                     areaName: "Administrator",
+                     pattern: "Administrator/{controller=Home}/{Action=Index}/{id?}"
+                 );
+
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{Action=Index}/{id?}"
+                );
+                
+                //endpoints.MapGet("/", async context =>
+                //{
+                //    await context.Response.WriteAsync("Hello World!");
+                //});
             });
         }
     }
