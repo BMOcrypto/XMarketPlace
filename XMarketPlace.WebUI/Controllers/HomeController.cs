@@ -21,5 +21,11 @@ namespace XMarketPlace.WebUI.Controllers
         {
             return View();
         }
+
+        // This method is to show products of one category
+        public IActionResult Products(Guid id)
+        {
+            return View(_ps.GetDefault(x => x.CategoryID == id).ToList());
+        }
     }
 }

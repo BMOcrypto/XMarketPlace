@@ -9,11 +9,13 @@ namespace XMarketPlace.Model.Entities
     {
         public string ProductName { get; set; }
         public string ProductDetail { get; set; }
+        public string ProductSummary { get; set; }
         public string ImagePath { get; set; }
         public double UnitPrice { get; set; }
         public int UnitsInStock { get; set; }
         public int ViewCount { get; set; }
-        
+        public int AddToCartCount { get; set; }
+
         public Guid CategoryID { get; set; } // FOREIGN KEY
         public virtual Category Category { get; set; }
 

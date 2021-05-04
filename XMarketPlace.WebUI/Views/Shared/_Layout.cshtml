@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @*<title>@ViewData["Title"]</title>*@
+    <title>MyAmazingProject</title>
+    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            @*<a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">My Amazing Project </a>*@
+            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">XMarketPlace </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            @*<a href='@Url.Action("MyAction", "MyController")'>
+                <img src='@Url.Content("~/Content/Images/MyLinkImage.png")' />
+                </a>
+                @Html.ActionLink("Anasayfa", "Index", "Home")*@
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("Index", "Home")">Anasayfa!Change</a>
+                </li>
+                <li class="nav-item active">
+                    @*<a class="nav-link" href="#">Ürünler?</a>*@
+                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Products">Ürünler</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="@Url.Action("About", "Home")">Hakkında!Ch</a>
+                </li>
+                @*<li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Products", "Home")">Ürünler</a>
+            </li>*@
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Info
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="@Url.Action("Contact", "Home")">İletişim</a>
+                        <a class="dropdown-item" href="@Url.Action("About", "Home")">Hakkımızda</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="@Url.Action("Privacy", "Home")">Gizlilik Beyanı</a>
+                    </div>
+                </li>
+                @*<li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>*@
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <div class="rt-subs">
+                @if (string.IsNullOrEmpty(User.Identity.Name))
+                {
+                    <a class="subscribe-btn" asp-controller="Account" asp-action="Login" title=""> Giriş Yap</a>
+                }
+                else
+                {
+                    <a class="subscribe-btn" asp-controller="Home" asp-action="Index" asp-area="Administrator" title="">Yönetici</a>
+                    <a class="subscribe-btn" asp-controller="Account" asp-action="Logout" title=""> Çıkış Yap</a>
+                }
+            </div>
+        </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main">
+            <!-- class="pb-3"-->
+            @RenderBody()
+        </main>
+    </div>
+
+    @*<footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - my_MVC_Project_v1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            </div>
+        </footer>*@
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-xs-6 col-md-3">
+                    <h6>XMarketPlace</h6>
+                    <ul class="footer-links">
+                        <li><a asp-controller="Home" asp-action="Index" title="">Anasayfa</a></li>
+                        <li><a href="@Url.Action("Contact", "Home")">İletişim</a></li>
+                        <li><a href="@Url.Action("About", "Home")">Hakkında</a></li>
+                        <li><a href="@Url.Action("Privacy", "Home")">Gizlilik</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-sm-12 col-md-9">
+                    <h6>About</h6>
+                    <p class="text-justify"></p>
+                    <p> This project wil contain a login page, a main page and some other pages to navigate through. To give it some functionality, databases will be created created using code first approach. User should be able to use CRUD operations also...<br /><b>For more info please get in touch with batuhankarahan@hotmail.com</b></p>
+                </div>
+
+
+
+                @*<div class="col-xs-6 col-md-3">
+                        <h6>Quick Links</h6>
+                        <ul class="footer-links">
+                            <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+                        </ul>
+                    </div>*@
+            </div>
+            <hr>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-sm-6 col-xs-12">
+                    <p class="copyright-text">
+                        &copy; 2021 - my_MVC_Project_v1
+                    </p>
+                </div>
+
+                <div class="col-md-4 col-sm-6 col-xs-12">
+                    <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/batuhan.karahan.756"><img src="~/images/facebook.png" width="44" height="44" /></a></li>
+                        @*<li><a href="@ViewBag.Face"><img src="~/images/facebook.png" width="44" height="44" /></a></li>*@
+                        <li><a href="https://twitter.com/karahanbatuhann"><img src="~/images/twitter.png" width="44" height="44" /></a></li>
+                        <li><a href="https://www.instagram.com/karahan.batuhan/?hl=tr"><img src="~/images/instagram.png" width="44" height="44" /></a></li>
+                        <li><a href="https://www.linkedin.com/in/batuhan-karahan-a7b795ba/"><img src="~/images/linkedin.png" width="44" height="44" /></a></li>
+                        @*<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>*@
+                        <!--<a class="navbar-brand" href="atUrl.Action("Index","Home")"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">My Amazing Project </a>-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    @*@RenderSection("Scripts", required: false)*@
+</body>
+</html>

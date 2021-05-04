@@ -13,6 +13,7 @@ namespace XMarketPlace.Model.Maps
         {
             builder.Property(x => x.ProductName).HasMaxLength(150).IsRequired(true);
             builder.Property(x => x.ProductDetail).IsRequired(true);
+            builder.Property(x => x.ProductSummary).IsRequired(true);
             builder.Property(x => x.ImagePath).IsRequired(false);
             builder.Property(x => x.UnitPrice).IsRequired(true);
             builder.Property(x => x.UnitsInStock).IsRequired(true);
