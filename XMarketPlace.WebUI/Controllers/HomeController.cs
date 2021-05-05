@@ -19,7 +19,7 @@ namespace XMarketPlace.WebUI.Controllers
         
         public IActionResult Index()
         {
-            return View();
+            return View(_ps.GetAll());
         }
 
         // This method is to show products of one category
@@ -27,5 +27,16 @@ namespace XMarketPlace.WebUI.Controllers
         {
             return View(_ps.GetDefault(x => x.CategoryID == id).ToList());
         }
+        public IActionResult Product(Guid id)
+        {
+            var item = _ps.GetById(id);
+            item.ViewCount++; // Görüntülemek istenen ürünün görüntülenme sayısı 1 arttırıyoruz
+            _ps.Update(item);
+
+            //şimdilik Tuple kullanmıyorum, gerekirse düzenlerim.
+            //return View(Tuple.Create<Product, User>(blog, _us.GetById(blog.UserID)));
+            return View(item);
+        }
+
     }
 }

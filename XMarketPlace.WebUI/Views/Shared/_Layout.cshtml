@@ -1,85 +1,224 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    @*<meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />*@
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     @*<title>@ViewData["Title"]</title>*@
     <title>MyAmazingProject</title>
-    <link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
-    <link href="~/css/site.css" rel="stylesheet" />
-    <script src="~/lib/jquery/jquery.js"></script>
-    <script src="~/lib/bootstrap/js/bootstrap.js"></script>
-    
+
+    @*<link href="~/lib/bootstrap/css/bootstrap.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+        <script src="~/lib/jquery/jquery.js"></script>
+        <script src="~/lib/bootstrap/js/bootstrap.js"></script>*@
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,200;0,300;0,400;0,500;0,700;0,800;1,200;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="css/animate.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="css/magnific-popup.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.min.css">
+
+    <link rel="stylesheet" href="css/flaticon.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            @*<a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">My Amazing Project </a>*@
-            <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">XMarketPlace </a>
-
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            @*<a href='@Url.Action("MyAction", "MyController")'>
-                <img src='@Url.Content("~/Content/Images/MyLinkImage.png")' />
-                </a>
-                @Html.ActionLink("Anasayfa", "Index", "Home")*@
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="@Url.Action("Index", "Home")">Anasayfa!Change</a>
-                </li>
-                <li class="nav-item active">
-                    @*<a class="nav-link" href="#">Ürünler?</a>*@
-                    <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Products">Ürünler</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="@Url.Action("About", "Home")">Hakkında!Ch</a>
-                </li>
-                @*<li class="nav-item active">
-                <a class="nav-link" href="@Url.Action("Products", "Home")">Ürünler</a>
-            </li>*@
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Info
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="@Url.Action("Contact", "Home")">İletişim</a>
-                        <a class="dropdown-item" href="@Url.Action("About", "Home")">Hakkımızda</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="@Url.Action("Privacy", "Home")">Gizlilik Beyanı</a>
+        <div class="wrap">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <p class="mb-0 phone pl-md-2">
+                            <a href="#" class="mr-2"><span class="fa fa-phone mr-1"></span> +90 530 595 17 43</a>
+                            <a href="mailto:batuhankarahan@hotmail.com"><span class="fa fa-paper-plane mr-1"></span> batuhankarahan@hotmail.com</a>
+                        </p>
                     </div>
-                </li>
-                @*<li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>*@
-            </ul>
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-            <div class="rt-subs">
-                @if (string.IsNullOrEmpty(User.Identity.Name))
-                {
-                    <a class="subscribe-btn" asp-controller="Account" asp-action="Login" title=""> Giriş Yap</a>
-                }
-                else
-                {
-                    <a class="subscribe-btn" asp-controller="Home" asp-action="Index" asp-area="Administrator" title="">Yönetici</a>
-                    <a class="subscribe-btn" asp-controller="Account" asp-action="Logout" title=""> Çıkış Yap</a>
-                }
+                    <div class="col-md-6 d-flex justify-content-md-end">
+                        <div class="social-media mr-4">
+                            <p class="mb-0 d-flex">
+                                <a href="https://www.facebook.com/batuhan.karahan.756" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                                <a href="https://twitter.com/karahanbatuhann" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                                <a href="https://www.instagram.com/karahan.batuhan/?hl=tr" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                                <a href="https://www.linkedin.com/in/batuhan-karahan-a7b795ba/" class="d-flex align-items-center justify-content-center"><span class="fa fa-linkedin"><i class="sr-only">Dribbble</i></span></a>
+                                <!-- <a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-dribbble"><i class="sr-only">Dribbble</i></span></a> -->
+                            </p>
+                        </div>
+                        <div class="reg">
+                            <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#">Log In</a></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!--<nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+        @*<a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">My Amazing Project </a>*@
+        <!--<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">XMarketPlace </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>-->
+        @*<a href='@Url.Action("MyAction", "MyController")'>
+            <img src='@Url.Content("~/Content/Images/MyLinkImage.png")' />
+            </a>
+            @Html.ActionLink("Anasayfa", "Index", "Home")*@
+
+        <!--<div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Index", "Home")">Anasayfa!Change</a>
+            </li>
+            <li class="nav-item active">-->
+        @*<a class="nav-link" href="#">Ürünler?</a>*@
+        <!--<a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Products">Ürünler</a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="@Url.Action("About", "Home")">Hakkında!Ch</a>
+        </li>-->
+        @*<li class="nav-item active">
+                <a class="nav-link" href="@Url.Action("Products", "Home")">Ürünler</a>
+            </li>*@
+        <!--<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Info
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="@Url.Action("Contact", "Home")">İletişim</a>
+                <a class="dropdown-item" href="@Url.Action("About", "Home")">Hakkımızda</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="@Url.Action("Privacy", "Home")">Gizlilik Beyanı</a>
+            </div>
+        </li>-->
+        @*<li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>*@
+        <!--</ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <div class="rt-subs">
+                    @if (string.IsNullOrEmpty(User.Identity.Name))
+                    {
+                        <a class="subscribe-btn" asp-controller="Account" asp-action="Login" title=""> Giriş Yap</a>
+                    }
+                    else
+                    {
+                        <a class="subscribe-btn" asp-controller="Home" asp-action="Index" asp-area="Administrator" title="">Yönetici</a>
+                        <a class="subscribe-btn" asp-controller="Account" asp-action="Logout" title=""> Çıkış Yap</a>
+                    }
+                </div>
+            </div>
+        </nav>-->
+        <!--************************************************************************************************************************************-->
+
+        <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+            <div class="container">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img src="~/images/turtle.png" width="30" height="40" class="d-inline-block align-top" alt="logo">X<span>MarketSpace</span></a>
+                <div class="order-lg-last btn-group">
+
+                    <!-- <a href="#" class="btn-cart dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="flaticon-shopping-bag"></span>
+                      <div class="d-flex justify-content-center align-items-center"><small>3</small></div>
+                    </a> -->
+                    <a href="#GoToCart" class="btn-cart " aria-haspopup="true" aria-expanded="false">
+                        <span class="flaticon-shopping-bag"></span>
+                    </a>
+
+                    <!-- <div class="dropdown-menu dropdown-menu-right">
+                      <div class="dropdown-item d-flex align-items-start" href="#">
+                          <div class="img" style="background-image: url(images/prod-1.jpg);"></div>
+                          <div class="text pl-3">
+                              <h4>Bacardi 151</h4>
+                              <p class="mb-0"><a href="#" class="price">$25.99</a><span class="quantity ml-3">Quantity: 01</span></p>
+                          </div>
+                      </div>
+                      <div class="dropdown-item d-flex align-items-start" href="#">
+                          <div class="img" style="background-image: url(images/prod-2.jpg);"></div>
+                          <div class="text pl-3">
+                              <h4>Jim Beam Kentucky Straight</h4>
+                              <p class="mb-0"><a href="#" class="price">$30.89</a><span class="quantity ml-3">Quantity: 02</span></p>
+                          </div>
+                      </div>
+                      <div class="dropdown-item d-flex align-items-start" href="#">
+                          <div class="img" style="background-image: url(images/prod-3.jpg);"></div>
+                          <div class="text pl-3">
+                              <h4>Citadelle</h4>
+                              <p class="mb-0"><a href="#" class="price">$22.50</a><span class="quantity ml-3">Quantity: 01</span></p>
+                          </div>
+                      </div>
+                      <a class="dropdown-item text-center btn-link d-block w-100" href="cart.html">
+                          View All
+                          <span class="ion-ios-arrow-round-forward"></span>
+                      </a>
+                    </div> -->
+                </div>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="oi oi-menu"></span> Menu
+                </button>
+
+                <div class="collapse navbar-collapse" id="ftco-nav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a asp-controller="Home" asp-action="Index" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Products</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdown04">
+                                <a class="dropdown-item" href="product.html">Products</a>
+                                <a class="dropdown-item" href="product-single.html">Single Product</a>
+                                <a class="dropdown-item" href="cart.html">Cart</a>
+                                <a class="dropdown-item" href="checkout.html">Checkout</a>
+                            </div>
+                        </li>
+                        <!-- <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li> -->
+                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
         </nav>
+        <!-- END nav -->
+        @*----BU KISIM SAYFAYA GORE DEGISECEGINDEN INDEX VE DIGER VIEW DOSYALARINA IHTIYAC DUYULDUGU SEKLIYLE KOYULACAK-----*@
+        @*<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+                <div class="overlay"></div>
+                <div class="container">
+                    <div class="row no-gutters slider-text align-items-end justify-content-center">
+                        <div class="col-md-9 ftco-animate mb-5 text-center">
+                            <p class="breadcrumbs mb-0"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Contact Us <i class="fa fa-chevron-right"></i></span></p>
+                            <h2 class="mb-0 bread">Main Layout içinde bu yazıyı istemiyoruz...</h2>
+                        </div>
+                    </div>
+                </div>
+            </section>*@
+
     </header>
-    <div class="container">
-        <main role="main">
-            <!-- class="pb-3"-->
-            @RenderBody()
+
+    <!--<div class="container">
+        <main role="main">-->
+    <!-- class="pb-3"-->
+    <!--**AT**RenderBody()
         </main>
+    </div>-->
+    <!--başka bir deneme daha-->
+    <!--<div>
+        <main role="main">-->
+    <!-- class="pb-3"-->
+    <!--**At**RenderBody()
+        </main>
+    </div>-->
+
+    <div>
+       
+        @RenderBody()
+        
     </div>
+
 
     @*<footer class="border-top footer text-muted">
             <div class="container">
@@ -87,7 +226,7 @@
             </div>
         </footer>*@
 
-    <footer class="site-footer">
+    <!--<footer class="site-footer">
         <div class="container">
             <div class="row">
 
@@ -95,9 +234,9 @@
                     <h6>XMarketPlace</h6>
                     <ul class="footer-links">
                         <li><a asp-controller="Home" asp-action="Index" title="">Anasayfa</a></li>
-                        <li><a href="@Url.Action("Contact", "Home")">İletişim</a></li>
-                        <li><a href="@Url.Action("About", "Home")">Hakkında</a></li>
-                        <li><a href="@Url.Action("Privacy", "Home")">Gizlilik</a></li>
+                        <li><a href="at***Url.Action("Contact", "Home")">İletişim</a></li>
+                        <li><a href="at***Url.Action("About", "Home")">Hakkında</a></li>
+                        <li><a href="at***Url.Action("Privacy", "Home")">Gizlilik</a></li>
                     </ul>
                 </div>
 
@@ -105,48 +244,147 @@
                     <h6>About</h6>
                     <p class="text-justify"></p>
                     <p> This project wil contain a login page, a main page and some other pages to navigate through. To give it some functionality, databases will be created created using code first approach. User should be able to use CRUD operations also...<br /><b>For more info please get in touch with batuhankarahan@hotmail.com</b></p>
-                </div>
-
-
-
-                @*<div class="col-xs-6 col-md-3">
-                        <h6>Quick Links</h6>
-                        <ul class="footer-links">
-                            <li><a href="http://scanfcode.com/about/">About Us</a></li>
-                            <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
-                            <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
-                            <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
-                            <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
-                        </ul>
-                    </div>*@
+                </div>-->
+    @*<div class="col-xs-6 col-md-3">
+            <h6>Quick Links</h6>
+            <ul class="footer-links">
+                <li><a href="http://scanfcode.com/about/">About Us</a></li>
+                <li><a href="http://scanfcode.com/contact/">Contact Us</a></li>
+                <li><a href="http://scanfcode.com/contribute-at-scanfcode/">Contribute</a></li>
+                <li><a href="http://scanfcode.com/privacy-policy/">Privacy Policy</a></li>
+                <li><a href="http://scanfcode.com/sitemap/">Sitemap</a></li>
+            </ul>
+        </div>*@
+    <!--</div>
+        <hr>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+                <p class="copyright-text">
+                    &copy; 2021 - my_MVC_Project_v1
+                </p>
             </div>
-            <hr>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-sm-6 col-xs-12">
-                    <p class="copyright-text">
-                        &copy; 2021 - my_MVC_Project_v1
-                    </p>
-                </div>
 
-                <div class="col-md-4 col-sm-6 col-xs-12">
-                    <ul class="social-icons">
-                        <li><a href="https://www.facebook.com/batuhan.karahan.756"><img src="~/images/facebook.png" width="44" height="44" /></a></li>
-                        @*<li><a href="@ViewBag.Face"><img src="~/images/facebook.png" width="44" height="44" /></a></li>*@
-                        <li><a href="https://twitter.com/karahanbatuhann"><img src="~/images/twitter.png" width="44" height="44" /></a></li>
-                        <li><a href="https://www.instagram.com/karahan.batuhan/?hl=tr"><img src="~/images/instagram.png" width="44" height="44" /></a></li>
-                        <li><a href="https://www.linkedin.com/in/batuhan-karahan-a7b795ba/"><img src="~/images/linkedin.png" width="44" height="44" /></a></li>
-                        @*<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
-                            <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>*@
-                        <!--<a class="navbar-brand" href="atUrl.Action("Index","Home")"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">My Amazing Project </a>-->
-                    </ul>
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <ul class="social-icons">
+                    <li><a href="https://www.facebook.com/batuhan.karahan.756"><img src="~/images/facebook.png" width="44" height="44" /></a></li>-->
+    @*<li><a href="@ViewBag.Face"><img src="~/images/facebook.png" width="44" height="44" /></a></li>*@
+    <!--<li><a href="https://twitter.com/karahanbatuhann"><img src="~/images/twitter.png" width="44" height="44" /></a></li>
+    <li><a href="https://www.instagram.com/karahan.batuhan/?hl=tr"><img src="~/images/instagram.png" width="44" height="44" /></a></li>
+    <li><a href="https://www.linkedin.com/in/batuhan-karahan-a7b795ba/"><img src="~/images/linkedin.png" width="44" height="44" /></a></li>-->
+    @*<li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+        <li><a class="instagram" href="#"><i class="fa fa-instagram"></i></a></li>
+        <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>*@
+    <!--<a class="navbar-brand" href="atUrl.Action("Index","Home")"><img src="~/images/turtle.png" width="30" height="30" class="d-inline-block align-top" alt="logo">My Amazing Project </a>-->
+    <!--</ul>
+                </div>
+            </div>
+        </div>
+    </footer>-->
+
+    <footer class="ftco-footer">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2 logo"><a href="#"><span>X</span>MarketSpace</a></h2>
+                        <p>Far far away, behind the word mountains, far from the countries.</p>
+                        <ul class="ftco-footer-social list-unstyled mt-2 text-center">
+                            <li class="ftco-animate"><a href="https://twitter.com/karahanbatuhann"><span class="fa fa-twitter"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.facebook.com/batuhan.karahan.756"><span class="fa fa-facebook"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.instagram.com/karahan.batuhan/?hl=tr"><span class="fa fa-instagram"></span></a></li>
+                            <li class="ftco-animate"><a href="https://www.linkedin.com/in/batuhan-karahan-a7b795ba/"><span class="fa fa-linkedin"></span></a></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">My Accounts</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Account</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Register</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Log In</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>My Order</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4 ml-md-4">
+                        <h2 class="ftco-heading-2">Information</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>About us</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Catalog</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Contact us</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Term &amp; Conditions</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Quick Link</h2>
+                        <ul class="list-unstyled">
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>New User</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Help Center</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Report Spam</a></li>
+                            <li><a href="#"><span class="fa fa-chevron-right mr-2"></span>Faq's</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md">
+                    <div class="ftco-footer-widget mb-4">
+                        <h2 class="ftco-heading-2">Have any Questions?</h2>
+                        <div class="block-23 mb-3">
+                            <ul>
+                                <li><span class="icon fa fa-map marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
+                                <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
+                                <li><a href="#"><span class="icon fa fa-paper-plane pr-4"></span><span class="text">info@yourdomain.com</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid px-0 py-5 bg-black">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <p class="mb-0" style="color: rgba(255,255,255,.5);"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        <p class="text-center">
+                            Copyright &copy;
+                            <script>document.write(new Date().getFullYear());</script> All rights reserved | XMarketPlace project is created by <b>Batuhan Karahan</b>. A free template by <a href="https://colorlib.com" target="_blank">Colorlib.com</a> is used for speeding up the process :)
+                        </p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
+
+
+
+    <!-- loader -->
+    <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
+
+
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-migrate-3.0.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.easing.1.3.js"></script>
+    <script src="js/jquery.waypoints.min.js"></script>
+    <script src="js/jquery.stellar.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.animateNumber.min.js"></script>
+    <script src="js/scrollax.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
+    <script src="js/google-map.js"></script>
+    <script src="js/main.js"></script>
 
     @*@RenderSection("Scripts", required: false)*@
 </body>
