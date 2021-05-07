@@ -13,7 +13,7 @@
             <div class="col-md-8 ftco-animate d-flex align-items-end">
                 <div class="text w-100 text-center">
                     <h1 class="mb-4"><span>Premium</span> Quality High <span>Variety</span> <u><span>XMarketPlace</span>.</u></h1>
-                    <p><a href="#LinkToProducts" class="btn btn-primary py-2 px-4">Shop Now</a> <a href="#LinkToAbout" class="btn btn-white btn-outline-white py-2 px-4">Read more</a></p>
+                    <p><a asp-controller="Home" asp-action="ShowAllProducts" class="btn btn-primary py-2 px-4">Shop Now</a> <a href="#LinkToAbout" class="btn btn-white btn-outline-white py-2 px-4">Read more</a></p>
                 </div>
             </div>
         </div>
@@ -95,9 +95,9 @@
 </section>
 
 <div class="container">
-    <h1>Main page, Products</h1>
+    <h1>Burası Main page, Products için ayrı bir sayfa oluşturup tüm ürünler orada listelenecek! Index sayfasında en çok tıklanan ürünler gösterilecek...</h1>
 
-    @foreach (var item in Model)
+    @foreach (var item in Model)// this method will be transferred to Products page eventually... Index page will host trending products...
     {<div class="col-lg-4 col-md-4 col-sm-4 col-12">
             <div class="card" style="width: 18rem;">
                 <div class="blog-img">

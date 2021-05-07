@@ -11,13 +11,24 @@ namespace XMarketPlace.WebUI.Controllers
     public class HomeController : Controller
     {
         private readonly ICoreService<Product> _ps;
+        private readonly ICoreService<Category> _cs;
+        private readonly ICoreService<User> _us;
 
-        public HomeController(ICoreService<Product> ps)
+
+        public HomeController(ICoreService<Product> ps, ICoreService<Category> cs, ICoreService<User> us)
         {
             _ps = ps;
+            _cs = cs;
+            _us = us;
+
         }
         
         public IActionResult Index()
+        {
+            return View(_ps.GetAll());// content will be changed...
+        }
+
+        public IActionResult ShowAllProducts()
         {
             return View(_ps.GetAll());
         }

@@ -1,0 +1,30 @@
+﻿@model List<Category>
+
+@*<div class="widget widget-catgs">
+    <h3 class="widget-title">Kategoriler</h3>
+    <ul class="catgs-links">
+        ATforeach (var item in Model)
+        {
+        <li><a asp-controller="Home" asp-action="Posts" asp-route-id="ATitem.ID">ATitem.CategoryName</a></li>}
+    </ul>
+</div>*@
+
+<div class="categories">
+    <h3>Product Types</h3>
+    <ul class="p-0">
+        @foreach (var item in Model)
+        {
+            <li><a asp-controller="Home" asp-action="Products" asp-route-id="@item.ID">@item.CategoryName</a></li>
+
+        }
+
+
+
+        @*<li><a href="#">Brandy <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="#">Gin <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="#">Rum <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="#">Tequila <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="#">Vodka <span class="fa fa-chevron-right"></span></a></li>
+            <li><a href="#">Whiskey <span class="fa fa-chevron-right"></span></a></li>*@
+    </ul>
+</div>

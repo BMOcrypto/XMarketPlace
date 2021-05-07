@@ -4,38 +4,38 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Product</h1>
-
 @*<section class="main-content p-80">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 mr-50">
-                <div class="single-page-content">
-                    <div class="standard-post">
-                        <div class="blog-item">
-                            <div class="blog-info">
-                                <ul class="meta">
-                                    <li>@Model.CreatedDate</li>
-                                    <li><i class="la la-eye"></i>@Model.ViewCount</li>
-                                </ul>
-                                <h3 class="post-title">@Model.ProductName</h3>
-                            </div>
-                            <div class="blog-img">
-                                <img src="@Model.ImagePath" alt="">
-                            </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mr-50">
+                    <div class="single-page-content">
+                        <div class="standard-post">
+                            <div class="blog-item">
+                                <div class="blog-info">
+                                    <ul class="meta">
+                                        <li>@Model.CreatedDate</li>
+                                        <li><i class="la la-eye"></i>@Model.ViewCount</li>
+                                    </ul>
+                                    <h3 class="post-title">@Model.ProductName</h3>
+                                </div>
+                                <div class="blog-img">
+                                    <img src="@Model.ImagePath" alt="">
+                                </div>
 
-                            @Html.Raw(Model.ProductDetail)
+                                @Html.Raw(Model.ProductDetail)
 
+                            </div>
                         </div>
-                    </div>
 
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>*@
+    </section>*@
 
-@*<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+<!--style="background: url('http://www.birds.com/wp-content/uploads/home/bird4.jpg')"-->
+@*<img src="~/images/bg_2.jpg" />*@
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
         <div class="row no-gutters slider-text align-items-end justify-content-center">
@@ -47,11 +47,13 @@
     </div>
 </section>
 
+
 <section class="ftco-section">
     <div class="container">
+        <h1>Here I Display my product</h1>
         <div class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="images/prod-1.jpg" class="image-popup prod-img-bg"><img src="images/prod-1.jpg" class="img-fluid" alt="Colorlib Template"></a>
+                <a href="~/images/prod-1.jpg" class="image-popup prod-img-bg"><img src="~/images/prod-1.jpg" class="img-fluid" alt="Colorlib Template"></a>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 <h3>Bacardi 151 Degree</h3>
@@ -99,4 +101,4 @@
             </div>
         </div>
     </div>
-</section>*@
+</section>
