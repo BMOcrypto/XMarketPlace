@@ -13,8 +13,8 @@
     <h3>Product Types</h3>
     <ul class="p-0">
         @foreach (var item in Model)
-        {
-            <li><a asp-controller="Home" asp-action="Products" asp-route-id="@item.ID">@item.CategoryName</a></li>
+        {//<li><a href="#">Gin <span class="fa fa-chevron-right"></span></a></li>
+            <li><a asp-controller="Home" asp-action="Products" asp-route-id="@item.ID">@item.CategoryName <span class="fa fa-chevron-right"></span></a></li>
 
         }
 

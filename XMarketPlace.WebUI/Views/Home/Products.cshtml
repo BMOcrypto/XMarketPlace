@@ -4,31 +4,33 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Products, (for a specific Category)</h1>
+
 
 <div class="col-lg-8 mgr-50">
     <div class="blog-section mb-20">
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="trending" role="tabpanel" aria-labelledby="trending-tab">
                 <div class="blog-items">
+                    
                     <div class="row">
 
-                        @foreach (var item in Model)
+                        @foreach (var item in Model) // This will be altered...
                         {
-            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="@item.ImagePath" alt="">
-                    </div>
-                    <div class="blog-info">
-                        <h3 class="post-title"><a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID">@item.ProductName</a></h3>
-                        <ul class="meta">
-                            <li>@item.CreatedDate</li>
-                            <li><i class="la la-eye"></i>@item.ViewCount</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>}
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+                                <div class="blog-item">
+                                    <div class="blog-img">
+                                        <img src="@item.ImagePath" alt="">
+                                    </div>
+                                    <div class="blog-info">
+                                        <h3><a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID">@item.ProductName</a></h3>
+                                        <ul class="meta">
+                                            <li>@item.CreatedDate</li>
+                                            <li>@item.ViewCount customers viewed this</li>
+                                        </ul>
+                                        @item.ProductSummary @item.UnitPrice
+                                    </div>
+                                </div>
+                            </div>}
 
 
                     </div>
