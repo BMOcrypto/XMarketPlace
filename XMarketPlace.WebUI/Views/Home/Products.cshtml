@@ -6,36 +6,67 @@
 
 
 
-<div class="col-lg-8 mgr-50">
-    <div class="blog-section mb-20">
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade show active" id="trending" role="tabpanel" aria-labelledby="trending-tab">
-                <div class="blog-items">
-                    
-                    <div class="row">
-
-                        @foreach (var item in Model) // This will be altered...
-                        {
-                            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-                                <div class="blog-item">
-                                    <div class="blog-img">
-                                        <img src="@item.ImagePath" alt="">
-                                    </div>
-                                    <div class="blog-info">
-                                        <h3><a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID">@item.ProductName</a></h3>
-                                        <ul class="meta">
-                                            <li>@item.CreatedDate</li>
-                                            <li>@item.ViewCount customers viewed this</li>
-                                        </ul>
-                                        @item.ProductSummary @item.UnitPrice
-                                    </div>
-                                </div>
-                            </div>}
-
-
-                    </div>
-                </div>
+<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate mb-5 text-center">
+                <p class="breadcrumbs mb-0"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home <i class="fa fa-chevron-right"></i></a></span> <span><a asp-controller="Home" asp-action="ShowAllProducts">All Products <i class="fa fa-chevron-right"></i></a></span> <span> Category Filtered</span></p>
+                <h2 class="mb-0 bread">Products</h2>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <div class="row">
+
+                    @foreach (var item in Model) // This will be altered...
+                    {
+                        <div class="col-md-4 d-flex">
+                            <div class="product ftco-animate">
+
+                                @*<div class="blog-img">
+                            <img src="@item.ImagePath" alt="">
+                            </div>*@
+
+                                <div class="img d-flex align-items-center justify-content-center" style="        background-image: url(~/images/prod-9.jpg);">
+                                    <!--Imagepath will be added from db-->
+                                    <div class="desc">
+                                        <p class="meta-prod d-flex">
+                                            <a href="#addtocart" class="d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+                                            <a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
+
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="text text-center">
+                                    <h2><a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID">@item.ProductName</a></h2>
+                                    <p>@item.ProductSummary</p>
+                                    <span class="price">@item.UnitPrice ₺</span>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="sidebar-box ftco-animate">
+
+                    @await Component.InvokeAsync("Category")
+
+                </div>
+                <div>
+                    <a asp-controller="Home" asp-action="ShowAllProducts" class="btn btn-primary py-3 px-5 text-right">All Products</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
