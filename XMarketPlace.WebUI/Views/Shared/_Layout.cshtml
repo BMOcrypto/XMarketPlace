@@ -50,7 +50,23 @@
                             </p>
                         </div>
                         <div class="reg">
-                            <p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#">Log In</a></p>
+                            @*<p class="mb-0"><a href="#" class="mr-2">Sign Up</a> <a href="#">Log In</a></p>*@
+                            @if (string.IsNullOrEmpty(User.Identity.Name))
+                            {
+                                <p class="mb-0">
+                                    <a href="#" class="mr-2">Kaydol</a>
+                                    <a asp-controller="Account" asp-action="Login" title=""> Giriş Yap</a>
+                                </p>
+                            }
+                            else
+                            {
+                                <p class="mb-0">
+                                    <a asp-controller="Home" asp-action="Index" asp-area="Administrator" title="">Yönetici</a>
+                                    <a asp-controller="Account" asp-action="Logout" title=""> Çıkış Yap</a>
+                                </p>   
+
+
+                            }
                         </div>
                     </div>
                 </div>
