@@ -85,10 +85,11 @@ namespace XMarketPlace.WebUI.Areas.Administrator.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(Product prdct)
+        public IActionResult Update(Product prdct) //Update(Product prdct, List<IFormFile> files)
         {
             if (ModelState.IsValid)
             {
+              
                 var updated = _ps.GetById(prdct.ID);
                 updated.ProductName = prdct.ProductName;
                 updated.ProductDetail = prdct.ProductDetail;
@@ -96,6 +97,19 @@ namespace XMarketPlace.WebUI.Areas.Administrator.Controllers
                 updated.UnitPrice = prdct.UnitPrice;
                 updated.UnitsInStock = prdct.UnitsInStock;
 
+                //bool imgResult;
+                //string imgPath = Upload.ImageUpload(files, _env, out imgResult);
+
+                //if (imgResult)
+                //{
+                //    prdct.ImagePath = imgPath;
+                //}
+                //else
+                //{
+                //    TempData["Message"] = "Resim yükleme esnasında hata Oluştu";
+                //}
+
+                
                 bool result = _ps.Update(updated);
                 if (result)
                 {

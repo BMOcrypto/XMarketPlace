@@ -10,6 +10,6 @@ namespace XMarketPlace.Model.Entities
         public string CategoryName { get; set; }
         public string Description { get; set; }
 
-        public virtual List<Product> Products { get; set; } // Category sınıfı için Post sınıfını bağladık
+        public virtual List<Product> Products { get; set; } // Category sınıfı için Product sınıfını bağladık
     }
 }
