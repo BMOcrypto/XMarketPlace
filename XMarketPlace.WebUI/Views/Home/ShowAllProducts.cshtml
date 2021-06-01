@@ -5,9 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<section class="hero-wrap hero-wrap-2" style="background-image: url('images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+<section class="hero-wrap hero-wrap-2" style=" background: url('../images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+    @*<img src="~/images/bg_2.jpg" />*@
     <div class="overlay"></div>
     <div class="container">
+        @*<img style="max-height:100%;max-width:100%" src ="~/images/bg_2.jpg" />*@
         <div class="row no-gutters slider-text align-items-end justify-content-center">
             <div class="col-md-9 ftco-animate mb-5 text-center">
                 <p class="breadcrumbs mb-0"><span class="mr-2"><a asp-controller="Home" asp-action="Index">Home <i class="fa fa-chevron-right"></i></a></span> <span>All Products <i class="fa fa-chevron-right"></i></span></p>
@@ -16,6 +18,7 @@
         </div>
     </div>
 </section>
+
 
 <section class="ftco-section">
     <div class="container">
