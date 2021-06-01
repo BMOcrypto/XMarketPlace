@@ -53,8 +53,11 @@
     <div class="container">
         <h1>Here I Display my product</h1>
         <div class="row">
-            <div class="col-lg-6 mb-5 ftco-animate"><!--This is temporary,Image path should change for each product.-->
-                <a href="~/images/prod-1.jpg" class="image-popup prod-img-bg"><img src="~/images/prod-1.jpg" class="img-fluid" alt="Colorlib Template"></a>
+            <div class="col-lg-6 mb-5 ftco-animate">
+                <!--This was temporary,Image path changes for each product.-->
+                @*<a href="~/images/prod-1.jpg" class="image-popup prod-img-bg"><img src="@Model.ImagePath" class="img-fluid" alt="No Image"></a>*@
+
+                <img src="@Model.ImagePath" class="img-fluid" alt="No Image">
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
                 @*<h3>Bacardi 151 Degree</h3>*@
@@ -67,7 +70,7 @@
                     On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
                 </p>*@
                 <div class="row mt-4">
-                    <div class="input-group col-md-6 d-flex mb-3">
+                    @*<div class="input-group col-md-6 d-flex mb-3">
                         <span class="input-group-btn mr-2">
                             <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
                                 <i class="fa fa-minus"></i>
@@ -80,13 +83,16 @@
                             </button>
                         </span>
                     </div>
-                    <div class="w-100"></div>
+                    <div class="w-100"></div>*@
                     <div class="col-md-12">
                         <p style="color: #000;">@Model.UnitsInStock piece available & this product has been viewed @Model.ViewCount times</p>
                     </div>
                 </div>
                 <!--****Addtocart in progress-->
-                <p class="text-right"><a href="#Addtocart" class="btn btn-primary py-3 px-5 mr-2">Add to Cart</a><a asp-controller="Home" asp-action="ShowAllProducts" class="btn btn-primary py-3 px-5">All Products</a></p>
+                <p class="text-right">
+                    <a href="#Addtocart" class="btn btn-primary py-3 px-5 mr-2">Add to Cart</a>
+                    <a asp-controller="Home" asp-action="ShowAllProducts" class="btn btn-primary py-3 px-5">All Products</a>
+                </p>
             </div>
         </div>
     </div>

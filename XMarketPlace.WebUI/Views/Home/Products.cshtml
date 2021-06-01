@@ -34,14 +34,15 @@
                             <img src="@item.ImagePath" alt="">
                             </div>*@
 
-                                <div class="img d-flex align-items-center justify-content-center" style="        background-image: url(~/images/prod-9.jpg);">
+                                <div class="img d-flex align-items-center justify-content-center">
                                     <!--Imagepath will be added from db-->
-                                    <div class="desc">
-                                        <p class="meta-prod d-flex">
+                                    <div>
+                                        <a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID"><img style="max-height:100%;max-width:100%" src="@item.ImagePath" alt="No Image" /></a>
+                                        @*<p class="meta-prod d-flex">
                                             <a href="#addtocart" class="d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
                                             <a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
 
-                                        </p>
+                                        </p>*@
                                     </div>
                                 </div>
                                 <div class="text text-center">

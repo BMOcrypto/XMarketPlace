@@ -23,7 +23,7 @@
             <div class="col-md-9">
                 @*<h1>ShowAllProducts</h1>*@
                 <div class="row">
-                    @foreach (var item in Model)// this method will be transferred to AllProducts page eventually... Index page will host trending products...
+                    @foreach (var item in Model)// This page shows all proucts, Index page will host trending products...
                     {
                         <div class="col-md-4 d-flex">
                             <div class="product ftco-animate">
@@ -35,11 +35,11 @@
                                     <div>  @*class="desc"*@
                                         <a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID"><img style="max-height:100%;max-width:100%" src="@item.ImagePath" alt="No Image" /></a>
                                         
-                                        <p class="meta-prod d-flex">
-                                            @*<a href="#addtocart" class="d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
-                                            <a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>*@
+                                        @*<p class="meta-prod d-flex">
+                                            <a href="#addtocart" class="d-flex align-items-center justify-content-center"><span class="flaticon-shopping-bag"></span></a>
+                                            <a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID" class="d-flex align-items-center justify-content-center"><span class="flaticon-visibility"></span></a>
 
-                                        </p>
+                                        </p>*@
                                     </div>
                                 </div>
                                 <div class="text text-center">
