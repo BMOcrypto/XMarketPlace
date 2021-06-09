@@ -37,7 +37,7 @@ namespace XMarketPlace.WebUI.Controllers
                     new Claim(ClaimTypes.Name, logged.FirstName),
                     new Claim(ClaimTypes.Surname, logged.LastName),
                     new Claim(ClaimTypes.Email, logged.EmailAddress),
-                    new Claim("Image", "")
+                    new Claim("Image", logged.ImageUrl)
                 };
 
                 var userIdentity = new ClaimsIdentity(claims, "login"); 
