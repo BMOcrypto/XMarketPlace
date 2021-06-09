@@ -94,39 +94,5 @@
     </div>
 </section>
 
-<div class="container">
-    <h1>Burası Main page, Products için ayrı bir sayfa oluşturup tüm ürünler orada listelenecek! Index sayfasında en çok tıklanan ürünler gösterilecek...</h1>
+@await Component.InvokeAsync("Trending")
 
-    @foreach (var item in Model)// this method will be transferred to Products page eventually... Index page will host trending products...
-    {<div class="col-lg-4 col-md-4 col-sm-4 col-12">
-            <div class="card" style="width: 18rem;">
-                <div class="blog-img">
-                    <img src="@item.ImagePath" alt="" />
-                </div>
-                <div class="blog-info">
-                    <h3 class="post-title"><a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID">@item.ProductName</a></h3>
-                    <ul class="meta">
-                        <!--<li>*at*item.CreatedDate</li>bunun yerine ProductSummary geldi-->
-                        <li>@item.ProductSummary</li>
-                        <li><i class="la la-eye"></i>@item.ViewCount</li>
-                        <li><i class="la la-"></i></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-        @*<div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="..." alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>*@
-    }
-</div>

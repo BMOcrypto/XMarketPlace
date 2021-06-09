@@ -1,6 +1,6 @@
 ﻿@model List<Product>
 
-<div>
+@*<div>
     <h2>Trending Products</h2>
     <div>
         @foreach (var item in Model) // This method will be checked later...
@@ -14,4 +14,46 @@
             </div>
         }
     </div>
-</div>
+</div>*@
+
+
+<section class="ftco-section">
+    <div class="container">
+        <h2 class="text-center">Trending Products</h2><br />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-md-3 d-flex">
+                            <div class="product ftco-animate">
+                                <div class="img d-flex align-items-center justify-content-center">
+                                    <div>
+                                        <a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID"><img style="max-height:100%;max-width:100%" src="@item.ImagePath" alt="No Image" /></a>
+
+                                    </div>
+                                </div>
+                                <div class="text text-center">
+                                    <h2><a asp-controller="Home" asp-action="Product" asp-route-id="@item.ID">@item.ProductName</a></h2>
+                                    <p>@item.ProductSummary</p>
+                                    <span class="price">@item.UnitPrice ₺</span><br />
+                                    <span>@item.ViewCount people viewed this product</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    }
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <a asp-controller="Home" asp-action="ShowAllProducts" class="btn btn-primary d-block">View All Products <span class="fa fa-long-arrow-right"></span></a>
+            </div>
+        </div>
+
+    </div>
+</section>
