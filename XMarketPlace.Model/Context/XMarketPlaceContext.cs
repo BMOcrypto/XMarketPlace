@@ -29,6 +29,8 @@ namespace XMarketPlace.Model.Context
         public DbSet<Product> Products { get; set; }
         public DbSet<User> Users { get; set; }
 
+        public DbSet<ShoppingCartItem> ShoppingCartItems { get; set; }
+
         public override int SaveChanges()
         {
             // ChangeTracker.Entries() ifadesi o an çalıştığımız tabloyu(modeli) temsil eder.

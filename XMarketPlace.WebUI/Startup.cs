@@ -12,6 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using XMarketPlace.Core.Service;
 using XMarketPlace.Model.Context;
+using XMarketPlace.Model.Entities;
 using XMarketPlace.Service.Base;
 
 namespace XMarketPlace.WebUI
@@ -34,9 +35,23 @@ namespace XMarketPlace.WebUI
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddMvc();
+            services.AddMvc();  //original line of code
+            //deneme
+            //services.AddMvc().AddSessionStateTempDataProvider();
+            //services.AddSession();
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => ShoppingCart.GetCart(sp));
+
+            services.AddMemoryCache();
+            services.AddSession();
+
+            //
 
             services.AddScoped(typeof(ICoreService<>), typeof(BaseService<>)); //Dependency Injection
+
+            //deneme
+            //services.AddHttpContextAccessor();
+            //
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
@@ -51,6 +66,10 @@ namespace XMarketPlace.WebUI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            //deneme
+            app.UseSession();
+            //
 
             app.UseStaticFiles();
 

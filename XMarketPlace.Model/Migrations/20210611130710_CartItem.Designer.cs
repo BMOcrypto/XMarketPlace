@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using XMarketPlace.Model.Context;
 
 namespace XMarketPlace.Model.Migrations
 {
     [DbContext(typeof(XMarketPlaceContext))]
-    partial class XMarketPlaceContextModelSnapshot : ModelSnapshot
+    [Migration("20210611130710_CartItem")]
+    partial class CartItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -147,8 +149,8 @@ namespace XMarketPlace.Model.Migrations
                     b.Property<Guid?>("ProductID")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("ShoppingCartId")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("ShoppingCartId")
+                        .HasColumnType("int");
 
                     b.HasKey("ShoppingCartItemId");
 
