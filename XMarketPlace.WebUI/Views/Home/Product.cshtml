@@ -89,7 +89,8 @@
                 </div>
                 <!--****Addtocart in progress-->
                 <p class="text-right">
-                    <a href="#Addtocart" class="btn btn-primary py-3 px-5 mr-2">Add to Cart</a>
+                    <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-id="@Model.ID" class="btn btn-primary py-3 px-5 mr-2">Add to Cart</a>
+                    @*<a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ID" class="btn">Delete</a>*@
                     <a asp-controller="Home" asp-action="ShowAllProducts" class="btn btn-primary py-3 px-5">All Products</a>
                 </p>
             </div>

@@ -36,11 +36,9 @@ namespace XMarketPlace.Model.Entities
             return new ShoppingCart(context) { ShoppingCartId = cartId };
         }
 
-        public void AddToCart(Product product, int amount)
+        public void AddToCart(Product product)
         {
-            var shoppingCartItem =
-                    _xMarketPlaceContext.ShoppingCartItems.SingleOrDefault(
-                        s => s.Product.ID == product.ID && s.ShoppingCartId == ShoppingCartId);
+            var shoppingCartItem =_xMarketPlaceContext.ShoppingCartItems.SingleOrDefault(s => s.Product.ID == product.ID && s.ShoppingCartId == ShoppingCartId);
 
             if (shoppingCartItem == null)
             {
@@ -93,6 +91,9 @@ namespace XMarketPlace.Model.Entities
                        _xMarketPlaceContext.ShoppingCartItems.Where(c => c.ShoppingCartId == ShoppingCartId)
                            .Include(s => s.Product)
                            .ToList());
+
+            //return ShoppingCartItems ??
+            //       (ShoppingCartItems = _xMarketPlaceContext.ShoppingCartItems.Where(x=>x.ShoppingCartId==ShoppingCartId)).Include(s => s.Product).ToList();
         }
 
         public void ClearCart()

@@ -47,19 +47,23 @@ namespace XMarketPlace.Model.Context
 
                 if (item != null)
                 {
-                    switch (item.State) // item.State kaydın durumunu verir
+                    if (entity != null)
                     {
-                        case EntityState.Added:
-                            entity.CreatedComputerName = computerName;
-                            entity.CreatedIP = ipAddress;
-                            entity.CreatedDate = date;
-                            break;
-                        case EntityState.Modified:
-                            entity.ModifiedComputerName = computerName;
-                            entity.ModifiedIP = ipAddress;
-                            entity.ModifiedDate = date;
-                            break;
+                        switch (item.State) // item.State kaydın durumunu verir
+                        {
+                            case EntityState.Added:
+                                entity.CreatedComputerName = computerName;
+                                entity.CreatedIP = ipAddress;
+                                entity.CreatedDate = date;
+                                break;
+                            case EntityState.Modified:
+                                entity.ModifiedComputerName = computerName;
+                                entity.ModifiedIP = ipAddress;
+                                entity.ModifiedDate = date;
+                                break;
+                        }
                     }
+                    
                 }
             }
 
