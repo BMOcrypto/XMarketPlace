@@ -13,7 +13,7 @@ namespace XMarketPlace.WebUI.Controllers
     public class AccountController : Controller
     {
         private readonly ICoreService<User> _us;
-        
+
         public AccountController(ICoreService<User> us)
         {
             _us = us;
@@ -57,6 +57,22 @@ namespace XMarketPlace.WebUI.Controllers
             await HttpContext.SignOutAsync(); 
 
             return RedirectToAction("Index", "Home", new { area = "" });
+        }
+
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(User user)
+        {
+
+            _us.Add(user);
+            _us.Save();
+
+
+            return RedirectToAction("Login", "Account");
         }
     }
 }
