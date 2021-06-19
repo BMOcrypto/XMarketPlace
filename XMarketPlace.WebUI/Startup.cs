@@ -42,6 +42,8 @@ namespace XMarketPlace.WebUI
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
 
+            services.AddScoped<IOrderRepository, OrderRepository>();
+
             services.AddMemoryCache();
             services.AddSession();
 
