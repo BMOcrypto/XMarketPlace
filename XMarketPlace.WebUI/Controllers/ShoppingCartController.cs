@@ -13,11 +13,13 @@ namespace XMarketPlace.WebUI.Controllers
     public class ShoppingCartController : Controller
     {
         private readonly ICoreService<Product> _ps;
+        private readonly ICoreService<User> _us;
         private readonly ShoppingCart _shoppingCart;
         
-        public ShoppingCartController(ICoreService<Product> ps, ShoppingCart shoppingCart)
+        public ShoppingCartController(ICoreService<Product> ps, ShoppingCart shoppingCart,ICoreService<User> us)
         {
             _ps = ps;
+            _us = us;
             _shoppingCart = shoppingCart;
         }
         
@@ -72,5 +74,14 @@ namespace XMarketPlace.WebUI.Controllers
             
         }
         //
+
+        public IActionResult SubmitOrder()
+        {
+
+            // Orders will be submitted here
+            
+
+            return RedirectToAction("Index");
+        }
     }
 }
