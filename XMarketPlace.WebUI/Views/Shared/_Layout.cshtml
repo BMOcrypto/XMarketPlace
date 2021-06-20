@@ -60,10 +60,15 @@
                             }
                             else
                             {
-                                <p class="mb-0">
-                                    <a asp-controller="Home" asp-action="Index" asp-area="Administrator" title="">Yönetici</a>
-                                    <a asp-controller="Account" asp-action="Logout" title=""> Çıkış Yap</a>
-                                </p>   
+                        <p class="mb-0">
+                            @if (!User.IsInRole("standard"))
+                            {
+                                <a asp-controller="Home" asp-action="Index" asp-area="Administrator" title="">Yönetici</a>
+                            }
+
+                            @*<a asp-controller="Home" asp-action="Index" asp-area="Administrator" title="">Yönetici</a>*@
+                            <a asp-controller="Account" asp-action="Logout" title=""> Çıkış Yap</a>
+                        </p>   
 
 
                             }
@@ -253,7 +258,7 @@
                             Copyright &copy;
                             <script>document.write(new Date().getFullYear());</script> All rights reserved | XMarketPlace project is created by <b>Batuhan Karahan</b>. A free template by <a href="https://colorlib.com" target="_blank">Colorlib.com</a> is used for better visuals :)
                         </p>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. </p>-->
                     </div>
                 </div>
             </div>

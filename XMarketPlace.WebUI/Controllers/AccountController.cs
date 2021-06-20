@@ -42,16 +42,26 @@ namespace XMarketPlace.WebUI.Controllers
                     new Claim(ClaimTypes.Name, logged.FirstName),
                     new Claim(ClaimTypes.Surname, logged.LastName),
                     new Claim(ClaimTypes.Email, logged.EmailAddress),
-                    new Claim("Image", logged.ImageUrl)
+                    new Claim("Image", logged.ImageUrl),
+                    new Claim(ClaimTypes.Role,logged.Title) // yetki kısıtlaması yapabilmek için deneme
                 };
 
                 var userIdentity = new ClaimsIdentity(claims, "login"); 
 
                 ClaimsPrincipal principal = new ClaimsPrincipal(userIdentity); 
 
-                await HttpContext.SignInAsync(principal); 
+                await HttpContext.SignInAsync(principal);
 
-                return RedirectToAction("Index", "Home", new { area = "Administrator" }); 
+                if (logged.Title!="standard")
+                {
+                    return RedirectToAction("Index", "Home", new { area = "Administrator" });
+                }
+                else
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+
+                //return RedirectToAction("Index", "Home", new { area = "Administrator" }); 
             }
 
             return View(item);
