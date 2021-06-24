@@ -35,10 +35,10 @@ namespace XMarketPlace.WebUI
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddMvc();  //original line of code
-            //deneme
-            //services.AddMvc().AddSessionStateTempDataProvider();
-            //services.AddSession();
+            services.AddMvc();  
+            
+            //////////////////////
+            
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped(sp => ShoppingCart.GetCart(sp));
 
@@ -47,13 +47,11 @@ namespace XMarketPlace.WebUI
             services.AddMemoryCache();
             services.AddSession();
 
-            //
+            //////////////////////
 
             services.AddScoped(typeof(ICoreService<>), typeof(BaseService<>)); //Dependency Injection
 
-            //deneme
-            //services.AddHttpContextAccessor();
-            //
+            
 
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
             {
@@ -95,10 +93,6 @@ namespace XMarketPlace.WebUI
                     pattern: "{controller=Home}/{Action=Index}/{id?}"
                 );
                 
-                //endpoints.MapGet("/", async context =>
-                //{
-                //    await context.Response.WriteAsync("Hello World!");
-                //});
             });
         }
     }

@@ -12,18 +12,18 @@ namespace XMarketPlace.Model.Entities
 {
     public class ShoppingCart
     {
-        //deneme 1
+        
         private readonly XMarketPlaceContext _xMarketPlaceContext;
         public ShoppingCart(XMarketPlaceContext xMarketPlaceContext)
         {
             _xMarketPlaceContext = xMarketPlaceContext;
         }
-        //
+        
         
         public string ShoppingCartId { get; set; }
         public List<ShoppingCartItem> ShoppingCartItems { get; set; }
 
-        //deneme2
+        //
         public static ShoppingCart GetCart(IServiceProvider services)
         {
             ISession session = services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
@@ -92,8 +92,7 @@ namespace XMarketPlace.Model.Entities
                            .Include(s => s.Product)
                            .ToList());
 
-            //return ShoppingCartItems ??
-            //       (ShoppingCartItems = _xMarketPlaceContext.ShoppingCartItems.Where(x=>x.ShoppingCartId==ShoppingCartId)).Include(s => s.Product).ToList();
+            
         }
 
         public void ClearCart()

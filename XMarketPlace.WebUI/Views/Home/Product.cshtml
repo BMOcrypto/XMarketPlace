@@ -4,37 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-@*<section class="main-content p-80">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 mr-50">
-                    <div class="single-page-content">
-                        <div class="standard-post">
-                            <div class="blog-item">
-                                <div class="blog-info">
-                                    <ul class="meta">
-                                        <li>@Model.CreatedDate</li>
-                                        <li><i class="la la-eye"></i>@Model.ViewCount</li>
-                                    </ul>
-                                    <h3 class="post-title">@Model.ProductName</h3>
-                                </div>
-                                <div class="blog-img">
-                                    <img src="@Model.ImagePath" alt="">
-                                </div>
 
-                                @Html.Raw(Model.ProductDetail)
-
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>*@
-
-<!--style="background: url('http://www.birds.com/wp-content/uploads/home/bird4.jpg')"-->
-@*<img src="~/images/bg_2.jpg" />*@
 <section class="hero-wrap hero-wrap-2" style="background-image: url('../../images/bg_2.jpg')" data-stellar-background-ratio="0.5">
     <div class="overlay"></div>
     <div class="container">
@@ -64,30 +34,14 @@
                 @*<p class="price"><span>$120.00</span></p>*@
                 <p class="price"><span>@Model.UnitPrice ₺</span></p>
                 <p>@Model.ProductDetail</p>
-                @*<p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth.</p>
-                <p>
-                    On her way she met a copy. The copy warned the Little Blind Text, that where it came from it would have been rewritten a thousand times and everything that was left from its origin would be the word "and" and the Little Blind Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her, made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.
-                </p>*@
+                
                 <div class="row mt-4">
-                    @*<div class="input-group col-md-6 d-flex mb-3">
-                        <span class="input-group-btn mr-2">
-                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-                                <i class="fa fa-minus"></i>
-                            </button>
-                        </span>
-                        <input type="text" id="quantity" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                        <span class="input-group-btn ml-2">
-                            <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                <i class="fa fa-plus"></i>
-                            </button>
-                        </span>
-                    </div>
-                    <div class="w-100"></div>*@
+                    
                     <div class="col-md-12">
                         <p style="color: #000;">@Model.UnitsInStock piece available & this product has been viewed @Model.ViewCount times</p>
                     </div>
                 </div>
-                <!--****Addtocart in progress-->
+                
                 <p class="text-right">
                     <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-id="@Model.ID" class="btn btn-primary py-3 px-5 mr-2">Add to Cart</a>
                     @*<a asp-controller="Product" asp-action="Delete" asp-route-id="@item.ID" class="btn">Delete</a>*@

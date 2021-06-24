@@ -43,7 +43,7 @@ namespace XMarketPlace.WebUI.Controllers
                     new Claim(ClaimTypes.Surname, logged.LastName),
                     new Claim(ClaimTypes.Email, logged.EmailAddress),
                     new Claim("Image", logged.ImageUrl),
-                    new Claim(ClaimTypes.Role,logged.Title) // yetki kısıtlaması yapabilmek için deneme
+                    new Claim(ClaimTypes.Role,logged.Title) // yetki kısıtlaması yapabilmek için
                 };
 
                 var userIdentity = new ClaimsIdentity(claims, "login"); 
@@ -61,7 +61,6 @@ namespace XMarketPlace.WebUI.Controllers
                     return RedirectToAction("Index", "Home");
                 }
 
-                //return RedirectToAction("Index", "Home", new { area = "Administrator" }); 
             }
 
             return View(item);

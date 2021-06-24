@@ -17,8 +17,6 @@ namespace XMarketPlace.Model.Entities
         public string Password { get; set; }
         public DateTime? LastLogin { get; set; }
 
-        ///Product tablosu ile User tablosunu ilişkilendirmeye gerek duymadım...
-        //public virtual List<Product> Products { get; set; } // User sınıfı için Product sınıfını bağladık
 
     }
 }

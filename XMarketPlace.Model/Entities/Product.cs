@@ -20,8 +20,5 @@ namespace XMarketPlace.Model.Entities
         public virtual Category Category { get; set; }
 
 
-        ///Product tablosu ile User tablosunu ilişkilendirmeye gerek duymadım...
-        //public Guid UserID { get; set; } // FOREGIN KEY
-        //public virtual User User { get; set; } // Product sınıfı için User sınıfını bağladık
     }
 }

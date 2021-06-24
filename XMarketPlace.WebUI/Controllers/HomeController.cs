@@ -25,7 +25,7 @@ namespace XMarketPlace.WebUI.Controllers
         
         public IActionResult Index()
         {
-            return View(_ps.GetAll());// content will be changed...
+            return View(_ps.GetAll());
         }
 
         public IActionResult ShowAllProducts()
@@ -44,8 +44,6 @@ namespace XMarketPlace.WebUI.Controllers
             item.ViewCount++; // Görüntülemek istenen ürünün görüntülenme sayısı 1 arttırıyoruz
             _ps.Update(item);
 
-            //şimdilik Tuple kullanmıyorum, gerekirse düzenlerim.
-            //return View(Tuple.Create<Product, User>(blog, _us.GetById(blog.UserID)));
             return View(item);
         }
 

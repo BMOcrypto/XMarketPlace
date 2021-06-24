@@ -32,38 +32,16 @@ namespace XMarketPlace.WebUI.Controllers
             return View(_shoppingCart);
         }
 
-        //ADD TO CART FUNCTION (DENEME)
-        //[Authorize]
-        //public RedirectToActionResult AddToShoppingCart(int drinkId)
-        //{
-        //    var selectedDrink = _drinkRepository.Drinks.FirstOrDefault(p => p.DrinkId == drinkId);
-        //    if (selectedDrink != null)
-        //    {
-        //        _shoppingCart.AddToCart(selectedDrink, 1);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
 
         public IActionResult AddToShoppingCart(Guid id)
         {
             _shoppingCart.AddToCart(_ps.GetById(id));
 
-            //return View("Index");
-            //return View(_shoppingCart);(hatalı)
             return RedirectToAction("Index");
         }
         //
 
-        //REMOVE FROM CART FUNCTION (DENEME)
-        //public RedirectToActionResult RemoveFromShoppingCart(int drinkId)
-        //{
-        //    var selectedDrink = _drinkRepository.Drinks.FirstOrDefault(p => p.DrinkId == drinkId);
-        //    if (selectedDrink != null)
-        //    {
-        //        _shoppingCart.RemoveFromCart(selectedDrink);
-        //    }
-        //    return RedirectToAction("Index");
-        //}
+        
 
         public IActionResult RemoveFromShoppingCart(Guid id)
         {
@@ -78,7 +56,7 @@ namespace XMarketPlace.WebUI.Controllers
         public IActionResult SubmitOrder()
         {
 
-            // Orders will be submitted here
+            // Not used
             
 
             return RedirectToAction("Index");
